@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import printer from "pdf-to-printer";
 import path from "path";
 import { ipcRenderer } from 'electron'
+import iconv from 'iconv-lite'
 
 const pdfUrl = path.join(__static, "/dummy.pdf");
 
@@ -14,7 +15,13 @@ function App() {
     console.log('useEffect');
     printer
       .getPrinters()
-      .then(setPrinters)
+      .then((data) => {
+        data = data.map((value, index) => {
+          var decodeValue = iconv.decode(new Buffer(value, 'binary'), 'cp936')
+          return decodeValue
+        })
+        setPrinters(data)
+      })
       .catch(console.error);
 
     ipcRenderer.on('exec_print', (event, params) => {
