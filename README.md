@@ -15,13 +15,13 @@ A utility to print PDF files from Node.js and Electron.
 Install using [`yarn`](https://yarnpkg.com/):
 
 ```bash
-yarn add pdf-to-printer
+yarn add spdf-to-printer
 ```
 
 Or [`npm`](https://www.npmjs.com/):
 
 ```bash
-npm install --save pdf-to-printer
+npm install --save spdf-to-printer
 ```
 
 ## Basic Usage
@@ -29,7 +29,7 @@ npm install --save pdf-to-printer
 Print a PDF file to the default printer:
 
 ```javascript
-import ptp from "pdf-to-printer";
+import ptp from "spdf-to-printer";
 
 ptp
   .print("assets/pdf-sample.pdf")
