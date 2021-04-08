@@ -2,11 +2,12 @@
 
 const fs = require("fs");
 const execAsync = require("../execAsync");
+const url = require('url')
 
 const print = (pdf, options = {}) => {
   if (!pdf) throw "No PDF specified";
   if (typeof pdf !== "string") throw "Invalid PDF name";
-  if (!fs.existsSync(pdf)) throw "No such file";
+  if (!fs.existsSync(url.pathToFileURL(pdf))) throw "No such file";
 
   const args = [pdf];
 

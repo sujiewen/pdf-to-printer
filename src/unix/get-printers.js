@@ -5,11 +5,12 @@ const execAsync = require("../execAsync");
 const getPrinters = () => {
   const parseResult = output => {
     return output
-      .trim()
-      .split("\n")
-      .map(e => e.substr(0, e.indexOf(" ")));
+        .trim()
+        .split('\n')
+        .map(e => (e.indexOf(' ') > 0 ? e.substr(0, e.indexOf(' ')) : e))
   };
-  return execAsync("lpstat", ["-a"], parseResult);
-};
+  console.log(parseResult)
+  return execAsync('lpstat', os.platform() === 'darwin' ? ['-e'] : ['-a'], parseResult)
+}
 
 module.exports = getPrinters;

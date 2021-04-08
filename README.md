@@ -7,7 +7,7 @@
 
 A utility to print PDF files from Node.js and Electron.
 
-* ✅ Works on Windows and Unix-like operating systems.
+* ✅ Works on Windows and Unix-like and Mac operating systems.
 * ✅ Supports label printers such as [Rollo](https://www.rolloprinter.com/) and [Zebra](https://www.zebra.com/us/en/products/printers.html).
 
 ## Installation
