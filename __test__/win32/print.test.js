@@ -13,7 +13,7 @@ jest.mock("../../src/electron-util");
 
 beforeEach(() => {
   // override the implementations
-  fixPathForAsarUnpack.mockImplementation(path => path);
+  fixPathForAsarUnpack.mockImplementation((path) => path);
   existsSync.mockImplementation(() => true);
   execAsync.mockImplementation(() => Promise.resolve());
   join.mockImplementation((_, filename) => "mocked_path_" + filename);
@@ -49,7 +49,7 @@ test("sends the PDF file to the default printer", () => {
     expect(execAsync).toHaveBeenCalledWith("mocked_path_SumatraPDF.exe", [
       "-print-to-default",
       "-silent",
-      filename
+      filename,
     ]);
   });
 });
@@ -63,7 +63,7 @@ test("sends PDF file to the specific printer", () => {
       "-print-to",
       printer,
       "-silent",
-      filename
+      filename,
     ]);
   });
 });
@@ -79,7 +79,7 @@ test("allows users to pass OS specific options", () => {
       "-print-settings",
       '"1,2,fit"',
       "-silent",
-      filename
+      filename,
     ]);
   });
 });

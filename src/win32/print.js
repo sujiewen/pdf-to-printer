@@ -25,7 +25,7 @@ const print = (pdf, options = {}) => {
 
   if (win32) {
     if (!Array.isArray(win32)) throw "options.win32 should be an array";
-    win32.map(win32Arg => args.push(...win32Arg.split(" ")));
+    win32.map((win32Arg) => args.push(...win32Arg.split(" ")));
   }
 
   args.push("-silent", pdf);

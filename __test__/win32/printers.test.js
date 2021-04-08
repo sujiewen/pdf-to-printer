@@ -33,7 +33,7 @@ test("returns list of available printers", () => {
   // Windows will write to stdout a list of printers under "Name" title.
   return expect(getPrinters()).resolves.toStrictEqual([
     "Windows Printer",
-    "Zebra"
+    "Zebra",
   ]);
 });
 
