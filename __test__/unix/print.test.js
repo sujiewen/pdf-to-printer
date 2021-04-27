@@ -33,7 +33,7 @@ test("throws if PDF name is invalid", () => {
 test("throws if PDF doesn't exist", () => {
   const noSuchFile = () => print("assets/pdf-sample.pdf");
   existsSync.mockImplementation(() => false);
-  // expect(noSuchFile).toThrowError(new Error("No such file"));
+  expect(noSuchFile).toThrowError(new Error("No such file"));
 });
 
 test("sends the PDF file to the default printer", () => {
