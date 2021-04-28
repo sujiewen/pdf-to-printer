@@ -30,6 +30,8 @@ const print = (pdf, options = {}) => {
 
   args.push("-silent", pdf);
 
+  console.log(args.toString())
+
   return execAsync(file, args);
 };
 
