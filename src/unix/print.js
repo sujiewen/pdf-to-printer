@@ -21,8 +21,6 @@ const print = (pdf, options = {}) => {
     unix.map((unixArg) => args.push(...unixArg.split(" ")));
   }
 
-  console.log(args.toString())
-
   return execAsync("lp", args);
 };
 
