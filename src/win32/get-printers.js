@@ -26,7 +26,10 @@ const getPrinters = () => {
   } else {
     return execAsync(
       "powershell",
-      ["-Command", "Get-Printer | Select-Object -ExpandProperty Name"],
+      [
+        "-Command",
+        "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; Get-Printer | Select-Object -ExpandProperty Name",
+      ],
       (stdout) => stdout.trim().split(/\r?\n/).filter(Boolean)
     );
   }
